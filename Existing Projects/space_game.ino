@@ -12,13 +12,13 @@ int i = 0,x , y;
 
 byte spaceplane[8] = {
   0b00000,
-  0b00111,
+  0b10111,
   0b00100,
   0b01010,
   0b11011,
   0b01010,
   0b00100,
-  0b00111
+  0b10111
 };
 byte spaceplane1[8] = {
   0b00000,
@@ -38,25 +38,25 @@ void setup() {
   lcd.begin(16, 2);
   lcd.setCursor(4, 0);
   lcd.print("WELCOME TO");
-  delay(1000);
+  delay(1200);
   lcd.setCursor(0, 2);
   lcd.print("THE SPACE GAME ");
-  delay(100);
+  delay(120);
   lcd.setCursor(15, 2);
   lcd.write(4);
-  delay(100);
+  delay(120);
   lcd.setCursor(16, 2);
   lcd.write(4);
-  delay(100);
+  delay(120);
   lcd.setCursor(17, 2);
   lcd.write(4);
-  delay(100);
+  delay(120);
   lcd.setCursor(18, 2);
   lcd.write(4);
-  delay(100);
+  delay(120);
   lcd.setCursor(19, 2);
   lcd.write(4);
-  delay(2000);
+  delay(1800);
   lcd.clear();
 }
 void loop()
@@ -69,28 +69,28 @@ void loop()
   if ( a > 1000 && 490 < b < 525 )   //// right
   {
     x++;
-    delay(300);
+    delay(280);
   }
 
   if ( 490 < a < 525 && b < 10 ) //////// left
   {
 
     x--;
-    delay(300);
+    delay(280);
   }
 
   if ( a < 10  && 490 < b < 595 ) //////// down
 
   {
     y = 1;
-    delay(250);
+    delay(280);
   }
 
   if ( a > 1000  && 490 < b < 530 )  //////// up
 
   {
     y = 0;
-    delay(250);
+    delay(280);
   }
 
   if (x == 15)
@@ -101,7 +101,7 @@ void loop()
 
   lcd.setCursor(x, y);
   lcd.write(4);
-  delay(500);
+  delay(480);
   lcd.clear();
 
 }
