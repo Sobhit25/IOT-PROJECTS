@@ -35,8 +35,8 @@ char keymap[numRows][numCols]=
 byte rowPins[numRows] = {11, 10, 9, 8}; //Rows 0 to 3
 byte colPins[numCols]= {7, 6, 5, 4}; //Columns 0 to 3
 
-int servoPin1 = 12;
-int servoPin2 = 13;
+volatile int servoPin1 = 12;
+volatile int servoPin2 = 13;
 
 //initializes an instance of the Keypad class
 Keypad myKeypad= Keypad(makeKeymap(keymap), rowPins, colPins, numRows, numCols);
@@ -47,7 +47,7 @@ int angle = 0;   // servo position in degrees
 
 void setup()
 {
-  Serial.begin(9600);
+  Serial.begin(57600);
   servo1.attach(servoPin1); 
   servo1.write(0);
   servo2.attach(servoPin2);
@@ -59,30 +59,30 @@ void loop()
   {
     Serial.println('a');
     enterPassword();  
-    delay(10000);
+    delay(5000);
   }
   if((analogRead(gasPin1) > threshold1) && count[0] == 0)
   {
     Serial.println('b');
     enterPassword1();
-    delay(10000);  
+    delay(5000);  
   }
   if((analogRead(gasPin2) > threshold2) && count[1] == 0)
   {
     Serial.println('c');
     enterPassword2();
-    delay(10000);  
+    delay(5000);  
   }
   if(analogRead(gasPin1) <= threshold1 && analogRead(gasPin2) <= threshold2)
   {
     Serial.println('d');
-    delay(14000);  
+    delay(7000);  
   }
   if(count[0] == 1 && count[1] == 1)
   {
     Serial.println('e');
     closeAllDoors();
-    delay(10000);
+    delay(5000);
   }
 }
 
